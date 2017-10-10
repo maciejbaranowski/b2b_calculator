@@ -1,6 +1,6 @@
 {
-  "name": "kalkulator_b2b",
-  "version": "1.0.0",
+  "name": "Kalkulator B2B",
+  "version": "0.0.1",
   "description": "some description - to be updated",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "b2b",
     "uop"
   ],
-  "author": "BERGSOFT Maciej Baranowski",
-  "license": "ISC",
+  "author": "Maciej Baranowski",
+  "license": "MIT",
   "dependencies": {
     "material-ui": "^0.19.3",
     "react": "^16.0.0",
