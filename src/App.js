@@ -3,7 +3,9 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import { Container, Row, Col } from 'react-grid-system';
 import Summary from './Summary';
 import Parameters from './Parameters';
+import Disclaimer from './Disclaimer';
 import { getInitialInput, calculateOutput } from './Calculator'
+
 
 class MasterGrid extends React.Component {
   constructor() {
@@ -38,7 +40,10 @@ export default class App extends React.Component {
   render () {
     return (
       <MuiThemeProvider>
-        <MasterGrid />
+        <div>
+          <MasterGrid />
+          <Disclaimer />
+        </div>
       </MuiThemeProvider>
     );
   }
