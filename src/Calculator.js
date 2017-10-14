@@ -4,14 +4,14 @@ export const CONSTANT_TAX = 2;
 
 const getInitialInput = () => {
   return {
-    netInvoice : 2000,
-    zusSmallSize : true,
-    zusHealth : true,
-    taxChoice : LINEAR_TAX
-  }
-}
+    netInvoice: 2000,
+    zusSmallSize: true,
+    zusHealth: true,
+    taxChoice: LINEAR_TAX
+  };
+};
 
-const calculateIncomeTax = (inputStats) => {
+const calculateIncomeTax = inputStats => {
   switch (inputStats.taxChoice) {
     case LINEAR_TAX:
       return inputStats.netInvoice * 0.19;
@@ -20,32 +20,26 @@ const calculateIncomeTax = (inputStats) => {
       const yearlyIncome = 12 * inputStats.netInvoice;
       const freeOfTaxation = 6600;
       let tax = 0;
-      if (yearlyIncome > taxThreshold)
-      {
+      if (yearlyIncome > taxThreshold) {
         tax = 15395.04 + 0.32 * (yearlyIncome - taxThreshold);
-      }
-      else
-      {
+      } else {
         tax = 0.18 * yearlyIncome;
       }
-      if (tax < freeOfTaxation)
-        return 0
-      return (tax - freeOfTaxation)/12;
+      if (tax < freeOfTaxation) return 0;
+      return (tax - freeOfTaxation) / 12;
     case CONSTANT_TAX:
       return inputStats.netInvoice * 0.17;
   }
-}
+};
 
-const calculateOutput = (inputStats) => {
+const calculateOutput = inputStats => {
   let incomeTax = calculateIncomeTax(inputStats);
-  let zus = (inputStats.zusSmallSize ? 500 : 1100 )+
-            (inputStats.zusHealth ? 5.55 : 0);
+  let zus = (inputStats.zusSmallSize ? 500 : 1100) + (inputStats.zusHealth ? 5.55 : 0);
   return {
-    incomeTax : incomeTax.toFixed(2),
-    zus : zus.toFixed(2),
-    realIncome : (inputStats.netInvoice - incomeTax - zus).toFixed(2)
+    incomeTax: incomeTax.toFixed(2),
+    zus: zus.toFixed(2),
+    realIncome: (inputStats.netInvoice - incomeTax - zus).toFixed(2)
+  };
+};
 
-  }
-}
-
-export {getInitialInput,calculateOutput};
+export { getInitialInput, calculateOutput };

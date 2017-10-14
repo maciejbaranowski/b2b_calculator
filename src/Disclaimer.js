@@ -1,5 +1,5 @@
-import React from 'react'
-import Snackbar from 'material-ui/Snackbar'
+import React from "react";
+import Snackbar from "material-ui/Snackbar";
 
 export default class Disclaimer extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class Disclaimer extends React.Component {
 
   handleActionTouchTap = () => {
     this.setState({
-      open: false,
+      open: false
     });
   };
 
