@@ -32,13 +32,43 @@ const calculateIncomeTax = inputStats => {
   }
 };
 
-const calculateOutput = inputStats => {
-  let incomeTax = calculateIncomeTax(inputStats);
-  let zus = (inputStats.zusSmallSize ? 500 : 1100) + (inputStats.zusHealth ? 5.55 : 0);
+const calculateZusPart = inputStats => {
+  if (!inputStats.zusSmallSize) {
+    return {
+      health: (297.28).toFixed(2),
+      healthTaxFree: (255.99).toFixed(2),
+      retirement: (499.28).toFixed(2),
+      pension: (204.62).toFixed(2),
+      sick: inputStats.zusHeath ? (62.67).toFixed(2) : (0.0).toFixed(2),
+      accident: (46.04).toFixed(2),
+      workFund: (62.67).toFixed(2)
+    };
+  }
   return {
-    incomeTax: incomeTax.toFixed(2),
-    zus: zus.toFixed(2),
-    realIncome: (inputStats.netInvoice - incomeTax - zus).toFixed(2)
+    health: (297.28).toFixed(2),
+    healthTaxFree: (255.99).toFixed(2),
+    retirement: (117.12).toFixed(2),
+    pension: (48.0).toFixed(2),
+    sick: inputStats.zusHeath ? (14.7).toFixed(2) : (0.0).toFixed(2),
+    accident: (10.8).toFixed(2),
+    workFund: (0.0).toFixed(2)
+  };
+};
+
+const calculateOutput = inputStats => {
+  let incomeTax = calculateIncomeTax(inputStats).toFixed(2);
+  let zus = calculateZusPart(inputStats);
+  let zusSum = 0;
+  Object.values(zus).reduce((key, value) => {
+    zusSum += Number(value);
+  });
+
+  let realIncome = (inputStats.netInvoice - incomeTax - zusSum).toFixed(2);
+  return {
+    incomeTax,
+    zus,
+    zusSum,
+    realIncome
   };
 };
 

@@ -10,15 +10,12 @@ class BaseToggle extends React.Component {
   };
   render() {
     return (
-      <div>
-        <br />
-        <Toggle
-          label={this.getLabelText()}
-          labelPosition="right"
-          toggled={this.props.value}
-          onToggle={this.handleChange}
-        />
-      </div>
+      <Toggle
+        label={this.getLabelText()}
+        labelPosition="right"
+        toggled={this.props.value}
+        onToggle={this.handleChange}
+      />
     );
   }
 }
