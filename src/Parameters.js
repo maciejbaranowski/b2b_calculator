@@ -37,7 +37,7 @@ class Parameters extends React.Component {
   };
 
   setZusHealth = value => {
-    this.setSpecificInputAndPropagate("zusHealth", value);
+    this.setSpecificInputAndPropagate("zusSickChoice", value);
   };
 
   getDescription = () => {
@@ -56,7 +56,7 @@ class Parameters extends React.Component {
         </ListItem>
         <ListItem>
           <ZusSizeToggle callbackChange={this.setZusSmallSize} value={this.state.zusSmallSize} />
-          <ZusHealthToggle callbackChange={this.setZusHealth} value={this.state.zusHealth} />
+          <ZusHealthToggle callbackChange={this.setZusHealth} value={this.state.zusSickChoice} />
         </ListItem>
         <ListItem>
           <TaxChoice callbackChange={this.setTaxChoice} value={this.state.taxChoice} />

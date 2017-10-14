@@ -6,7 +6,7 @@ const getInitialInput = () => {
   return {
     netInvoice: 2000,
     zusSmallSize: true,
-    zusHealth: true,
+    zusSickChoice: true,
     taxChoice: LINEAR_TAX
   };
 };
@@ -36,20 +36,18 @@ const calculateZusPart = inputStats => {
   if (!inputStats.zusSmallSize) {
     return {
       health: (297.28).toFixed(2),
-      healthTaxFree: (255.99).toFixed(2),
       retirement: (499.28).toFixed(2),
       pension: (204.62).toFixed(2),
-      sick: inputStats.zusHealth ? (62.67).toFixed(2) : (0.0).toFixed(2),
+      sick: inputStats.zusSickChoice ? (62.67).toFixed(2) : (0.0).toFixed(2),
       accident: (46.04).toFixed(2),
       workFund: (62.67).toFixed(2)
     };
   }
   return {
     health: (297.28).toFixed(2),
-    healthTaxFree: (255.99).toFixed(2),
     retirement: (117.12).toFixed(2),
     pension: (48.0).toFixed(2),
-    sick: inputStats.zusHealth ? (14.7).toFixed(2) : (0.0).toFixed(2),
+    sick: inputStats.zusSickChoice ? (14.7).toFixed(2) : (0.0).toFixed(2),
     accident: (10.8).toFixed(2),
     workFund: (0.0).toFixed(2)
   };
@@ -59,7 +57,8 @@ const calculateOutput = inputStats => {
   let incomeTax = calculateIncomeTax(inputStats).toFixed(2);
   let zus = calculateZusPart(inputStats);
   let zusSum = 0;
-  Object.values(zus).reduce((key, value) => {
+  Object.values(zus).map(value => {
+    console.log(Number(value));
     zusSum += Number(value);
   });
 
