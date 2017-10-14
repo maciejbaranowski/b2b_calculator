@@ -39,7 +39,7 @@ const calculateZusPart = inputStats => {
       healthTaxFree: (255.99).toFixed(2),
       retirement: (499.28).toFixed(2),
       pension: (204.62).toFixed(2),
-      sick: inputStats.zusHeath ? (62.67).toFixed(2) : (0.0).toFixed(2),
+      sick: inputStats.zusHealth ? (62.67).toFixed(2) : (0.0).toFixed(2),
       accident: (46.04).toFixed(2),
       workFund: (62.67).toFixed(2)
     };
@@ -49,7 +49,7 @@ const calculateZusPart = inputStats => {
     healthTaxFree: (255.99).toFixed(2),
     retirement: (117.12).toFixed(2),
     pension: (48.0).toFixed(2),
-    sick: inputStats.zusHeath ? (14.7).toFixed(2) : (0.0).toFixed(2),
+    sick: inputStats.zusHealth ? (14.7).toFixed(2) : (0.0).toFixed(2),
     accident: (10.8).toFixed(2),
     workFund: (0.0).toFixed(2)
   };

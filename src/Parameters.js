@@ -2,7 +2,7 @@ import React from "react";
 import RaisedButton from "material-ui/RaisedButton";
 import { List, ListItem } from "material-ui/List";
 import Divider from "material-ui/Divider";
-import { Card, CardText } from "material-ui/Card";
+import { Card, CardText, CardTitle } from "material-ui/Card";
 
 import { getInitialInput } from "./Calculator";
 import SliderWithCurrency from "./SliderWithCurrency";
@@ -40,8 +40,12 @@ class Parameters extends React.Component {
     this.setSpecificInputAndPropagate("zusHealth", value);
   };
 
+  getDescription = () => {
+    return "Za pomocą tego narzędzia policzysz swój dochód przy umowie w ramach B2B. Wypełnij pola poniżej zgodnie z opisem.";
+  };
   render = () => (
     <Card>
+      <CardTitle title="Kalkulator B2B" subtitle={this.getDescription()} />
       <List>
         <ListItem>
           <SliderWithCurrency
