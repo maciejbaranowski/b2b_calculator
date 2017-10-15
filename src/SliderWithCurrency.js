@@ -10,7 +10,13 @@ class SliderWithCurrency extends React.Component {
       <div>
         {this.props.heading}
         <span className="income">{this.props.value} zl</span>
-        <Slider min={2000} max={50000} step={100} value={this.props.value} onChange={this.handleChange} />
+        <Slider
+          min={this.props.min}
+          max={this.props.max}
+          step={this.props.step}
+          value={this.props.value}
+          onChange={this.handleChange}
+        />
       </div>
     );
   }

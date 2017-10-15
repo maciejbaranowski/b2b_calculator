@@ -7,7 +7,8 @@ const getInitialInput = () => {
     netInvoice: 2000,
     zusSmallSize: true,
     zusSickChoice: true,
-    taxChoice: LINEAR_TAX
+    taxChoice: LINEAR_TAX,
+    costs: 0
   };
 };
 
@@ -30,7 +31,7 @@ const calculateFreeOfTaxationIncomeForProgressive = income => {
 };
 
 const calculateCosts = inputStats => {
-  return 0;
+  return inputStats.costs;
 };
 
 const calculateTaxationBase = inputStats => {

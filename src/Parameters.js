@@ -6,7 +6,7 @@ import { Card, CardText, CardTitle } from "material-ui/Card";
 
 import { getInitialInput } from "./Calculator";
 import SliderWithCurrency from "./SliderWithCurrency";
-import { ZusSizeToggle, ZusHealthToggle } from "./Toggles";
+import { ZusSizeToggle, ZusSickToggle } from "./Toggles";
 import TaxChoice from "./TaxChoice";
 
 class Parameters extends React.Component {
@@ -35,8 +35,12 @@ class Parameters extends React.Component {
     this.setSpecificInputAndPropagate("taxChoice", value);
   };
 
-  setZusHealth = value => {
+  setZusSickChoice = value => {
     this.setSpecificInputAndPropagate("zusSickChoice", value);
+  };
+
+  setCosts = value => {
+    this.setSpecificInputAndPropagate("costs", value);
   };
 
   getDescription = () => {
@@ -51,16 +55,30 @@ class Parameters extends React.Component {
         <ListItem>
           <SliderWithCurrency
             heading="Kwota netto na fakturze (bez VAT): "
+            min={2000}
+            max={50000}
+            step={100}
             value={this.state.netInvoice}
             callbackChange={this.setNetInvoice}
           />
         </ListItem>
         <ListItem>
           <ZusSizeToggle callbackChange={this.setZusSmallSize} value={this.state.zusSmallSize} />
-          <ZusHealthToggle callbackChange={this.setZusHealth} value={this.state.zusSickChoice} />
+          <ZusSickToggle callbackChange={this.setZusSickChoice} value={this.state.zusSickChoice} />
         </ListItem>
         <ListItem>
           <TaxChoice callbackChange={this.setTaxChoice} value={this.state.taxChoice} />
+        </ListItem>
+        <ListItem>
+          <SliderWithCurrency
+            heading="Na ile estymujesz miesięczne koszty swojej działalności?
+            (oprogramowanie, sprzęt, transport, amortyzacja samochodu służbowego): "
+            min={0}
+            max={this.state.netInvoice}
+            step={100}
+            value={this.state.costs}
+            callbackChange={this.setCosts}
+          />
         </ListItem>
       </List>
     </Card>
