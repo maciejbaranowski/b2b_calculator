@@ -1,6 +1,6 @@
 # B2B Calculator (Kalkulator B2B)
 ## General description
-Javascript based calculator for "B2B-employed" in Poland. Project mainly used as my sandbox to play around with JS libraries.
+Javascript based calculator for "B2B-employed" in Poland. Project mainly used as my sandbox to play around with JS libraries. Please note that as this tool is Poland-specific, UI is developed in Polish language only.
 ## Deployment
 For a quick setup with webpack-dev-server:
 ```
