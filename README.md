@@ -11,4 +11,8 @@ For a deployable build with webpack:
 ```
 npm run-script build
 ```
+To run test suites:
+```
+npm test
+```
 Tested with npm version 3.10.8, should work with any other as well

@@ -11,7 +11,7 @@ const getInitialInput = () => {
   };
 };
 
-const calculateIncomeTax = inputStats => {
+const calculateIncomeTax = (inputStats, zus) => {
   switch (inputStats.taxChoice) {
     case LINEAR_TAX:
       return inputStats.netInvoice * 0.19;
@@ -54,14 +54,13 @@ const calculateZusPart = inputStats => {
 };
 
 const calculateOutput = inputStats => {
-  let incomeTax = calculateIncomeTax(inputStats).toFixed(2);
   let zus = calculateZusPart(inputStats);
   let zusSum = 0;
   Object.values(zus).map(value => {
-    console.log(Number(value));
     zusSum += Number(value);
   });
 
+  let incomeTax = calculateIncomeTax(inputStats, zus).toFixed(2);
   let realIncome = (inputStats.netInvoice - incomeTax - zusSum).toFixed(2);
   return {
     incomeTax,

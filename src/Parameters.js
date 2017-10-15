@@ -20,7 +20,6 @@ class Parameters extends React.Component {
     stateUpdate[key] = value;
     this.setState(stateUpdate, () => {
       this.props.callbackChange(this.state);
-      console.log(this.state);
     });
   };
 
@@ -41,8 +40,10 @@ class Parameters extends React.Component {
   };
 
   getDescription = () => {
-    return "Za pomocą tego narzędzia policzysz swój dochód przy umowie w ramach B2B. Wypełnij pola poniżej zgodnie z opisem.";
+    return "Za pomocą tego narzędzia policzysz swój dochód przy umowie w ramach B2B.\
+      Wypełnij pola poniżej zgodnie z opisem.";
   };
+
   render = () => (
     <Card>
       <CardTitle title="Kalkulator B2B" subtitle={this.getDescription()} />
