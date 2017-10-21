@@ -1,10 +1,14 @@
 import React from "react";
-import { MuiThemeProvider } from "material-ui/styles";
 import { Container, Row, Col } from "react-grid-system";
 import Summary from "./Summary";
 import Parameters from "./Parameters";
 import Disclaimer from "./Disclaimer";
+
 import { getInitialInput, calculateOutput } from "./Calculator";
+
+import { MuiThemeProvider } from "material-ui/styles";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import muiTheme from "./MuiTheme";
 
 class MasterGrid extends React.Component {
   constructor() {
@@ -36,8 +40,8 @@ class MasterGrid extends React.Component {
 export default class App extends React.Component {
   render() {
     return (
-      <MuiThemeProvider>
-        <div>
+      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+        <div style={muiTheme.palette.containerStyle}>
           <MasterGrid />
           <Disclaimer />
         </div>

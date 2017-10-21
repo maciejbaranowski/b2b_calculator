@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "material-ui/Slider";
+import theme from "./MuiTheme";
 
 class SliderWithCurrency extends React.Component {
   handleChange = (event, value) => {
@@ -9,7 +10,7 @@ class SliderWithCurrency extends React.Component {
     return (
       <div>
         {this.props.heading}
-        <span className="income">{this.props.value} zl</span>
+        <span style={theme.palette.incomeStyle}>{this.props.value} zl</span>
         <Slider
           min={this.props.min}
           max={this.props.max}
