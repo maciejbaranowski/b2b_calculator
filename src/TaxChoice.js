@@ -1,7 +1,7 @@
 import React from "react";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
-import { Card, CardText } from "material-ui/Card";
+import { Card, CardText, CardHeader } from "material-ui/Card";
 import { LINEAR_TAX, PROGRESSIVE_TAX, CONSTANT_TAX } from "./Calculator";
 
 const getDescription = taxChoice => {
@@ -33,6 +33,7 @@ const TaxChoice = props => (
       <MenuItem value={CONSTANT_TAX} primaryText="Podatek ryczałtowy" />
     </SelectField>
     <Card>
+      <CardHeader subtitle="Informacja o wybranym podatku:" />
       <CardText>{getDescription(props.value)}</CardText>
     </Card>
   </div>
