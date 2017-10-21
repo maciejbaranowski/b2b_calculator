@@ -4,7 +4,7 @@ import { List, ListItem } from "material-ui/List";
 import Divider from "material-ui/Divider";
 import { Card, CardText, CardTitle } from "material-ui/Card";
 
-import { getInitialInput } from "./Calculator";
+import { getInitialInput, PROGRESSIVE_TAX, LINEAR_TAX } from "./Calculator";
 import SliderWithCurrency from "./SliderWithCurrency";
 import { ZusSizeToggle, ZusSickToggle } from "./Toggles";
 import TaxChoice from "./TaxChoice";
@@ -69,17 +69,19 @@ class Parameters extends React.Component {
         <ListItem>
           <TaxChoice callbackChange={this.setTaxChoice} value={this.state.taxChoice} />
         </ListItem>
-        <ListItem>
-          <SliderWithCurrency
-            heading="Na ile estymujesz miesięczne koszty swojej działalności?
+        {(this.state.taxChoice == PROGRESSIVE_TAX || this.state.taxChoice == LINEAR_TAX) && (
+          <ListItem>
+            <SliderWithCurrency
+              heading="Na ile estymujesz miesięczne koszty swojej działalności?
             (oprogramowanie, sprzęt, transport, amortyzacja samochodu służbowego): "
-            min={0}
-            max={this.state.netInvoice}
-            step={100}
-            value={this.state.costs}
-            callbackChange={this.setCosts}
-          />
-        </ListItem>
+              min={0}
+              max={this.state.netInvoice}
+              step={100}
+              value={this.state.costs}
+              callbackChange={this.setCosts}
+            />
+          </ListItem>
+        )}
       </List>
     </Card>
   );
