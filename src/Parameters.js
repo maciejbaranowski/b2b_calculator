@@ -62,13 +62,16 @@ class Parameters extends React.Component {
             callbackChange={this.setNetInvoice}
           />
         </ListItem>
+        <Divider />
         <ListItem>
           <ZusSizeToggle callbackChange={this.setZusSmallSize} value={this.state.zusSmallSize} />
           <ZusSickToggle callbackChange={this.setZusSickChoice} value={this.state.zusSickChoice} />
         </ListItem>
+        <Divider />
         <ListItem>
           <TaxChoice callbackChange={this.setTaxChoice} value={this.state.taxChoice} />
         </ListItem>
+        <Divider />
         {(this.state.taxChoice == PROGRESSIVE_TAX || this.state.taxChoice == LINEAR_TAX) && (
           <ListItem>
             <SliderWithCurrency

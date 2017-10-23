@@ -28,6 +28,6 @@ export class ZusSizeToggle extends BaseToggle {
 
 export class ZusSickToggle extends BaseToggle {
   getLabelText = () => {
-    return "Czy chcesz opłacac składkę na ubezpieczenie chorobowe?";
+    return "Czy chcesz opłacać składkę na ubezpieczenie chorobowe?";
   };
 }

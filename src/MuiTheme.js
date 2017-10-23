@@ -16,14 +16,15 @@ import { fade } from "material-ui/utils/colorManipulator";
 import spacing from "material-ui/styles/spacing";
 
 import { ListItem } from "material-ui/List";
-ListItem.defaultProps.disableTouchRipple = true;
-ListItem.defaultProps.disableFocusRipple = true;
-
+ListItem.defaultProps.disabled = true;
 document.body.style.backgroundColor = grey300;
 export default {
   spacing: spacing,
   fontFamily: "Roboto, sans-serif",
   palette: {
+    sliderValueStyle: {
+      top: "25px"
+    },
     incomeStyle: {
       color: green500,
       fontWeight: "bold",
@@ -38,7 +39,7 @@ export default {
     primary2Color: teal700,
     primary3Color: grey400,
     accent1Color: teal200,
-    accent2Color: grey100,
+    accent2Color: grey300,
     accent3Color: grey500,
     textColor: darkBlack,
     alternateTextColor: white,
