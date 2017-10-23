@@ -1,17 +1,17 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require("path");
+var webpack = require("webpack");
 
 module.exports = {
-  entry: './main.js',
-  output: { path: __dirname, filename: 'bundle.js' },
+  entry: "./main.js",
+  output: { path: __dirname, filename: "bundle.js" },
   module: {
     loaders: [
       {
         test: /.js?$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react'],
+          presets: ["es2015", "react"],
           plugins: ["transform-class-properties"]
         }
       },
@@ -20,5 +20,5 @@ module.exports = {
         loader: "style-loader!css-loader"
       }
     ]
-  },
+  }
 };
