@@ -3,7 +3,7 @@ import Chart from "chart.js";
 import { green500, red100, red200, red300, red400, red500, red600, red700 } from "material-ui/styles/colors";
 
 class ExpensesGraph extends React.Component {
-	componentDidMount = () => {
+	drawChart = () => {
 		let data = {
 			datasets: [
 				{
@@ -32,12 +32,18 @@ class ExpensesGraph extends React.Component {
 			]
 		};
 		var myPieChart = new Chart(document.getElementById("myChart"), {
-			type: "pie",
+			type: "doughnut",
 			data: data,
 			options: {}
 		});
 	};
 
+	componentWillReceiveProps = () => {
+		this.drawChart();
+	};
+	componentDidMount = () => {
+		this.drawChart();
+	};
 	render = () => <canvas id="myChart" width="400" height="800" />;
 }
 
