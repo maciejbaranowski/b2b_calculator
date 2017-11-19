@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-grid-system";
 import Summary from "./Summary";
 import Parameters from "./Parameters";
 import Disclaimer from "./Disclaimer";
+import ExpensesGraph from "./ExpensesGraph";
 
 import { getInitialInput, calculateOutput } from "./Calculator";
 
@@ -32,6 +33,11 @@ class MasterGrid extends React.Component {
         </Col>
         <Col md={4}>
           <Summary stats={this.state.outputStats} />
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <ExpensesGraph stats={this.state.outputStats} />
         </Col>
       </Row>
     </Container>

@@ -2,7 +2,6 @@ import React from "react";
 import { List, ListItem } from "material-ui/List";
 import { Card, CardTitle } from "material-ui/Card";
 import theme from "./MuiTheme";
-import ExpensesGraph from "./ExpensesGraph";
 
 const SummaryItem = props => (
   <ListItem>
@@ -31,9 +30,6 @@ const Summary = props => (
           <SummaryItem label="Składka wypadkowa" style={theme.palette.expenseStyle} value={props.stats.zus.accident} />
           <SummaryItem label="Fundusz Pracy" style={theme.palette.expenseStyle} value={props.stats.zus.workFund} />
         </List>
-      </ListItem>
-      <ListItem>
-        <ExpensesGraph stats={props.stats} />
       </ListItem>
     </List>
   </Card>

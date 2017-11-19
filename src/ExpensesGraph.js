@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "chart.js";
+import { Card, CardTitle } from "material-ui/Card";
 import { green500, red100, red200, red300, red400, red500, red600, red700 } from "material-ui/styles/colors";
 
 class ExpensesGraph extends React.Component {
@@ -34,7 +35,11 @@ class ExpensesGraph extends React.Component {
 		var myPieChart = new Chart(document.getElementById("myChart"), {
 			type: "doughnut",
 			data: data,
-			options: {}
+			options: {
+				legend: {
+					position: "right"
+				}
+			}
 		});
 	};
 
@@ -44,7 +49,12 @@ class ExpensesGraph extends React.Component {
 	componentDidMount = () => {
 		this.drawChart();
 	};
-	render = () => <canvas id="myChart" width="400" height="800" />;
+	render = () => (
+		<Card>
+			<CardTitle title="Analiza" subtitle="Wizualizacja obliczonych Wartości" />
+			<canvas id="myChart" />
+		</Card>
+	);
 }
 
 export default ExpensesGraph;
